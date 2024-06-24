@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Nolan Walker World Map Guessing Game-->
+	<title>Map Guessing Game</title>
+	<!-- Setting style and alignment-->
+	<style>
+		a {font-family: 'Courier New', Courier, monospace;}
+		h1 {text-align:center; color: white; font-family: Arial, sans-serif;}
+		h2 {text-align:center;color: white; font-family: Times, serif;}
+	
+	</style>
+</head>
+<body style="background-color: #a8a47d">
+	<div id="challengehead" style="font-family: Arial, sans-serif;"><h1>World Map</h1><hr><div>
+	<div id="randquestion"></div>
+	<!-- Alligning image center to page-->
+	<style>
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+	<div class="image-container">
+	<div id="Map"><img src="Images/world map.jpg" usemap="#image-map"><div>
+		</div>
+	<div id="randimap"><div>
+		<script>
+			//Questions for user to answer
+			let q1 = "<h2>Click on the country with the Capitol Tokyo. Please click as close as possible to where you think the location is.</h2>";
+			let q2 = "<h2>Click on Ireland. Please click as close as possible to where you think the location is.</h2>";
+			let q3 = "<h2>Click on a country that shares a border with the United States. Please click as close as possible to where you think the location is.</h2>";
+			let q4 = "<h2>Click the where you can find Kangaroos. Please click as close as possible to where you think the location is.</h2>";
+
+			//Setting coordinates for the answer locations. I used a website called image-map.net that generated the code for the coordinates
+			let map1 ="<map name='image-map'><area target='' alt='J' title='J' href='Japan.html' coords='709,203,741,196,731,234,691,244,697,231' shape='poly'><area target='' alt='Map' title='Map' href='i.html' coords='1683,240,645,0,2,2,4,624,803,624,809,0,730,0,644,0,667,165,676,220,734,190,740,241,712,240' shape='poly'></map> ";
+			
+			let map2 = "<map name='image-map'><area target='' alt='I' title='I' href='Ireland.html' coords='382,163,393,178' shape='rect'><area target='' alt='Map' title='Map' href='i.html' coords='805,0,2,0,0,627,810,623,375,198,379,150,402,156,377,198,809,625' shape='poly'></map> ";
+			
+			let map3 = "<map name='image-map'><area target='' alt='C' title='C' href='USA.html' coords='249,0,294,178,278,195,102,197,100,85,148,13,186,0' shape='poly'><map name='image-map'><area target='' alt='M' title='M' href='USA.html' coords='141,242,199,245,216,271,193,288,157,268' shape='poly'><area target='' alt='Map' title='Map' href='i.html' coords='0,0,808,0,137,240,157,294,242,279,229,250,128,238,804,0,810,145,809,625,10,627,0,609,0,278' shape='poly'><area target='' alt='Map' title='Map' href='c.html' coords='617,457,612,485,635,509,648,522,658,516,657,488,689,474,656,453' shape='poly'></map>";
+
+			let map4 = "<map name='image-map'><area target='' alt='A' title='A' href='AUS.html' coords='661,415,649,345,731,333,777,385,751,442' shape='poly'><map name='image-map'><area target='' alt='Map' title='Map' href='i.html' coords='0,635,820,633,820,3,0,0,0,91,0,179,614,382,671,333,751,325,788,398,746,446,644,414,615,383,155,227,0,177,0,179' shape='poly'></map>";
+
+		//Generate Random Number from 1 to 4
+		let randq = Math.floor(Math.random()*10)%4+1;
+		
+		console.log(randq);
+		//Change question and map for user if they choose to try again
+		if (randq == 1){
+			document.getElementById('randquestion').innerHTML = q1;
+			document.getElementById('randimap').innerHTML = map1;
+		} else if (randq == 2) {
+			document.getElementById('randquestion').innerHTML = q2;	
+			document.getElementById('randimap').innerHTML = map2;			
+		} else if (randq == 3) {
+			document.getElementById('randquestion').innerHTML = q3;	
+			document.getElementById('randimap').innerHTML = map3;			
+		} else if (randq == 4) {
+			document.getElementById('randquestion').innerHTML = q4;	
+			document.getElementById('randimap').innerHTML = map4;			
+		}
+	</script>
+</body>
+</html>
